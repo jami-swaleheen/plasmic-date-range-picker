@@ -39,6 +39,7 @@ export function DateRangePicker({
   useEffect(() => {
     setFromDate(date?.from);
     setToDate(date?.to);
+    console.log("from", from, "to", to);
   }, [date]);
   return (
     <div className={cn("grid gap-2", className)}>
@@ -75,6 +76,7 @@ export function DateRangePicker({
             selected={date}
             onSelect={onSelectHandler}
             numberOfMonths={2}
+            disabled={(date) => date > new Date(to) || date < new Date(from)}
           />
         </PopoverContent>
       </Popover>
