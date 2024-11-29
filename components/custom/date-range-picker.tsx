@@ -39,7 +39,6 @@ export function DateRangePicker({
   useEffect(() => {
     setFromDate(date?.from);
     setToDate(date?.to);
-    console.log("from", from, "to", to);
   }, [date]);
   return (
     <div className={cn("grid gap-2", className)}>
