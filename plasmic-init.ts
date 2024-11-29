@@ -5,9 +5,8 @@ import { GlobalVariablesContext } from "./context/useGlobalVariableContext";
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
-      id: "q2XURTBCW7kSBbJk2SssD5",
-      token:
-        "l58uduzqewnRpDCK65ziixQ7Sl1a4DBL4VwOzAsrX46opqO7noBzqHuVtnpb9v0yioqi5TmalXOyYc9Q",
+      id: process.env.DATE_RANGE_PICKER_PROJECT_ID ?? "",
+      token: process.env.DATE_RANGE_PICKER_PROJECT_TOKEN ?? "",
     },
   ],
 
