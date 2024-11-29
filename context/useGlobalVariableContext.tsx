@@ -27,13 +27,6 @@ export const GlobalVariablesContext = ({
     []
   );
 
-  // Optional side effects or initializations can be added here, if needed.
-  useEffect(() => {
-    // Example: log updates to dates
-    console.log("fromDate updated:", fromDate);
-    console.log("toDate updated:", toDate);
-  }, [fromDate, toDate]);
-
   return (
     <GlobalActionsProvider
       contextName="GlobalVariablesContext"
