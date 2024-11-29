@@ -20,12 +20,12 @@ export function DateRangePicker({
   to = addDays(new Date(Date.now()), 20),
 }: {
   className: string;
-  from: Date;
-  to: Date;
+  from: Date | string;
+  to: Date | string;
 }) {
   const [date, setDate] = useState<DateRange | undefined>({
-    from,
-    to,
+    from: new Date(from),
+    to: new Date(to),
   });
   const globalActions = useGlobalActions();
   const setFromDate = globalActions["GlobalVariablesContext.setFromDate"];
