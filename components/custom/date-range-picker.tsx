@@ -1,11 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { addDays, format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 import { DateRange } from "react-day-picker";
 import { useGlobalActions } from "@plasmicapp/host";
-import { cn } from "@/lib/utils";
+import { cn, getDateDifferenceInDays } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -36,6 +36,11 @@ export function DateRangePicker({
       to: value?.to,
     });
   };
+  const maxRange = useMemo(() => {
+    return date?.from && date?.to
+      ? getDateDifferenceInDays(date.from, date.to)
+      : 20;
+  }, [date]);
   useEffect(() => {
     setFromDate(date?.from);
     setToDate(date?.to);
@@ -74,6 +79,7 @@ export function DateRangePicker({
             defaultMonth={date?.from}
             selected={date}
             onSelect={onSelectHandler}
+            max={maxRange}
             numberOfMonths={2}
           />
         </PopoverContent>
